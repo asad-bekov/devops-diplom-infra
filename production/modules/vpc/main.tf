@@ -17,18 +17,16 @@ resource "yandex_vpc_subnet" "subnet_b" {
 }
 
 resource "yandex_vpc_subnet" "subnet_c" {
-  name           = "${var.project_name}-subnet-d"  # Оставляем существующее имя!
+  name           = "${var.project_name}-subnet-d"
   zone           = var.zone_c
   network_id     = yandex_vpc_network.network.id
   v4_cidr_blocks = ["192.168.30.0/24"]
 }
 
-# Security Group с ВСЕМИ существующими правилами (из вывода terraform plan)
 resource "yandex_vpc_security_group" "k8s_sg" {
   name        = "k8s-security-group"
   network_id  = yandex_vpc_network.network.id
   
-  # ВСЕ ingress правила из существующей SG:
   ingress {
     description    = "SSH from student's IP"
     port           = 22
@@ -115,7 +113,6 @@ resource "yandex_vpc_security_group" "k8s_sg" {
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
   
-  # ВСЕ egress правила из существующей SG:
   egress {
     description    = "Outbound traffic"
     protocol       = "ANY"

@@ -14,7 +14,6 @@ provider "yandex" {
   token     = var.yc_token
 }
 
-# Модуль VPC
 module "vpc" {
   source = "./modules/vpc"
   
@@ -25,7 +24,6 @@ module "vpc" {
   network_cidr = "192.168.0.0/16"
 }
 
-# Модуль compute
 module "compute" {
   source = "./modules/compute"
   
@@ -40,7 +38,6 @@ module "compute" {
   security_group_id   = module.vpc.security_group_id
 }
 
-# Модуль registry
 module "registry" {
   source = "./modules/registry"
   
@@ -48,7 +45,6 @@ module "registry" {
   folder_id    = var.folder_id
 }
 
-# Outputs
 output "master_ip" {
   value = module.compute.master_ip
 }

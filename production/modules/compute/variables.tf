@@ -9,7 +9,7 @@ variable "subnet_a_id" { type = string }
 variable "subnet_b_id" { type = string }
 variable "subnet_c_id" { type = string }
 variable "security_group_id" { type = string }
-# Делаем sa_key необязательной
+
 variable "sa_key" {
   type        = string
   default     = ""
