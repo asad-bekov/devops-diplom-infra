@@ -16,13 +16,11 @@ provider "yandex" {
   token     = var.yc_token
 }
 
-# Сервисный аккаунт для Terraform
 resource "yandex_iam_service_account" "terraform" {
   name        = "terraform-sa"
   description = "Service account for Terraform"
 }
 
-# Роли для сервисного аккаунта
 resource "yandex_resourcemanager_folder_iam_member" "editor" {
   folder_id = var.folder_id
   role      = "editor"
@@ -35,7 +33,6 @@ resource "yandex_resourcemanager_folder_iam_member" "vpc_admin" {
   member    = "serviceAccount:${yandex_iam_service_account.terraform.id}"
 }
 
-# Ключ для сервисного аккаунта
 resource "yandex_iam_service_account_key" "terraform_key" {
   service_account_id = yandex_iam_service_account.terraform.id
   description        = "Static key for Terraform SA"
@@ -45,7 +42,6 @@ resource "random_id" "bucket_suffix" {
   byte_length = 4
 }
 
-# S3 бакет для Terraform state
 resource "yandex_storage_bucket" "tf_state" {
   bucket = "diploma-terraform-state-${random_id.bucket_suffix.hex}"
   
@@ -54,13 +50,11 @@ resource "yandex_storage_bucket" "tf_state" {
   }
 }
 
-# Сохраняем ключ локально в JSON
 resource "local_file" "sa_key_json" {
   filename = "${path.module}/sa-key.json"
   content  = yandex_iam_service_account_key.terraform_key.private_key
 }
 
-# Сохраняем информацию о bucket в файл
 resource "local_file" "bucket_info" {
   filename = "${path.module}/bucket-info.txt"
   content  = <<-EOT

@@ -119,15 +119,6 @@ Kubernetes-кластер развёрнут на виртуальных маш�
 
 ---
 
-## Связанные репозитории
-
-1. **Приложение и CI/CD** - Приложение и CI/CD - тестовое приложение и pipeline развертывания
-   - [devops-diplom-app](https://github.com/asad-bekov/devops-diplom-app)
-
-2. **Kubernetes конфигурации** - манифесты для мониторинга, ingress
-   - [devops-diplom-k8s](https://github.com/asad-bekov/devops-diplom-k8s)
-
-
 ## Скриншоты
 В отчёте по дипломному проекту представлены скриншоты:
 - списка виртуальных машин в Yandex Cloud
@@ -145,7 +136,7 @@ Kubernetes-кластер развёрнут на виртуальных маш�
 
 Проверка инфраструктуры через Terraform
 ![Состояние инфраструктуры](screenshots/03-terraform/01-terraform-show-instance.png)
-
+---
 
 ## Заключение
 Данная инфраструктура обеспечивает надежную основу для развертывания и эксплуатации Kubernetes кластера в Yandex Cloud. Использование Terraform позволяет легко воспроизводить, изменять и масштабировать инфраструктуру, следуя принципам Infrastructure as Code.
@@ -153,3 +144,12 @@ Kubernetes-кластер развёрнут на виртуальных маш�
 ## Лицензия
 Проект распространяется под лицензией MIT. Подробнее см. в файле LICENSE.
 
+## Связанные репозитории
+
+1. **Приложение и CI/CD** - Приложение и CI/CD - тестовое приложение и pipeline развертывания
+   - [devops-diplom-app](https://github.com/asad-bekov/devops-diplom-app)
+
+2. **Kubernetes конфигурации** - манифесты для мониторинга, ingress
+   - [devops-diplom-k8s](https://github.com/asad-bekov/devops-diplom-k8s)
+
+---
