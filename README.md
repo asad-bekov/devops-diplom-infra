@@ -135,10 +135,10 @@ Kubernetes-кластер развёрнут на виртуальных маш�
 - состояния инфраструктуры после развёртывания
 
 Созданные ресурсы в `Yandex Cloud`
-![YC overview](screenshots/01-yandex-cloud/01-yc-overview.png)
+![YC overview](screenshots/01-yandex-cloud/01-yс-overview.png)
 
 Созданные виртуальные машины в `Yandex Cloud`
-![YC VMs](screenshots/01-yandex-cloud/01-vm-list.png)
+![YC VMs](screenshots/01-yandex-cloud/02-vm-list.png)
 
 Состояние нод `Kubernetes`-кластер
 ![`Kubernetes`-кластер](screenshots/02-kubernetes/01-k8s-nodes.png)
